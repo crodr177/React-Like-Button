@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles.css'
+// import logo from './logo.svg';
+// import './App.css';
 
 class App extends Component {
+  state = {
+    numLikes: 0, 
+    wordLikes: "likes"
+  }
+
+  // changeLike = (e) => {
+  //   if(this.state.numLikes === 1) {
+  //       this.state.wordLikes = "like"
+  //   }
+  // }
+
+  clickHandler = (e) => {
+    this.setState({
+      numLikes: (this.state.numLikes + 1),
+      wordLikes: this.state.numLikes === 0 ? 'like': "likes"
+    })
+  }
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <button onChange={this.changeLike} onClick={this.clickHandler}>{this.state.numLikes} {this.state.wordLikes}</button>
       </div>
     );
   }
