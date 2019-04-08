@@ -9,12 +9,6 @@ class App extends Component {
     wordLikes: "likes"
   }
 
-  // changeLike = (e) => {
-  //   if(this.state.numLikes === 1) {
-  //       this.state.wordLikes = "like"
-  //   }
-  // }
-
   clickHandler = (e) => {
     this.setState({
       numLikes: (this.state.numLikes + 1),
@@ -25,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button onChange={this.changeLike} onClick={this.clickHandler}>{this.state.numLikes} {this.state.wordLikes}</button>
+        <button onClick={this.clickHandler}>{this.state.numLikes} {this.state.wordLikes}</button>
       </div>
     );
   }
